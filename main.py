@@ -1,7 +1,8 @@
 from collections import defaultdict
 import json
 import requests
-
+import git
+from datetime import datetime, timedelta
 
 # 读取配置文件
 def read_config(file_path):
@@ -11,10 +12,6 @@ def read_config(file_path):
 
 
 # 获取 Git 提交日志
-import git
-from datetime import datetime, timedelta
-
-
 def get_git_log(repo_path):
     repo = git.Repo(repo_path)
     author_name = repo.config_reader().get_value("user", "name")
